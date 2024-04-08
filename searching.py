@@ -30,12 +30,29 @@ def read_data(file_name, field):
     return data.get(field)
 
 
+def linear_search(sekvencia, cislo):
+    positions = []
+    count = 0
+    idx = 0
+
+    while idx < len(sekvencia):
+        if sekvencia[idx] == cislo:
+            count = count +1
+            positions.append(idx)
+        idx = idx + 1
+
+    return positions, count
+
+
 
 def main():
     #pass
     #volať funkciu read_data
     sequential_data = read_data("sequential.json", "unordered_numbers")
     print(sequential_data)
+
+    linear_algorithm = linear_search(sequential_data, 5)
+    print(linear_algorithm)
 
 
 if __name__ == '__main__':
