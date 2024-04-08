@@ -33,7 +33,7 @@ def read_data(file_name, field):
 
 def main():
     #pass
-    #volať funkciu reaA_data
+    #volať funkciu read_data
     sequential_data = read_data("sequential.json", "unordered_numbers")
     print(sequential_data)
 
