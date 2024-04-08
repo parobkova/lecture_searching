@@ -38,21 +38,40 @@ def linear_search(sekvencia, cislo):
     while idx < len(sekvencia):
         if sekvencia[idx] == cislo:
             count = count +1
-            positions.append(idx)
+            positions.append(idx+1)
         idx = idx + 1
 
-    return positions, count
+    return {'positions': positions, 'count': count}
+
+
+def pattern_search(sekvencia, vzor):
+    positions = set()
+    patern_lenght = len(vzor)
+    sequence_lenght = len(sekvencia)
+
+    for i in range(sequence_lenght - patern_lenght + 1):
+        if sekvencia[i:i+patern_lenght] == vzor:
+            positions.add(i)
+
+    return positions
+
+
+
+
 
 
 
 def main():
     #pass
     #volať funkciu read_data
-    sequential_data = read_data("sequential.json", "unordered_numbers")
+    sequential_data = read_data("sequential.json", "dna_sequence")
     print(sequential_data)
 
     linear_algorithm = linear_search(sequential_data, 5)
     print(linear_algorithm)
+
+    pattern_algorithm = pattern_search(sequential_data, 'ATA')
+    print(pattern_algorithm)
 
 
 if __name__ == '__main__':
